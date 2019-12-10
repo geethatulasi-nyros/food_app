@@ -1,13 +1,14 @@
 <div class="container">  
   <nav class="navbar navbar-expand-lg fixed-top nav">
     <div class="navbar-nav mr-auto">
-     <%= link_to 'Post dish', new_dish_path,class: " btn btn-sm btn-warning navbar-brand",remote: true %>
+     <%= link_to 'Post dish', new_dish_path,class: " btn btn-sm btn-success navbar-brand" %>
     </div>
     <div class="navbar-nav ml-auto user-buttons">
       <% if  user_signed_in? %>
+        <!--<%= link_to 'Edit user', edit_user_registration_path,class: 'btn btn-success' %>-->
         <%= link_to "Signout", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-danger btn-create navbar-brand mr-auto" %>
         <% else %>
-          <%= link_to 'Signin', new_user_session_path, class: 'btn btn-sm btn-primary' %>
+          <%= link_to 'Signin', new_user_session_path, class: 'btn btn-sm btn-primary sign-btn navbar-brand mr-auto' %>
       <% end %>  
     </div>
   </nav>

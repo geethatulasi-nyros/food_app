@@ -2,7 +2,7 @@
 	<% dishes.each do |dish| %>
 		<div class="col-md-4">
 		 	<div class="card dish-card">
-				<%= link_to  dish_path(dish), :remote => true do %>
+				<%= link_to  dish_path(dish)  do %>
 						<%if dish.images.length > 0 %>
 							<%= image_tag dish.images[0].image.to_s, class: 'dish-image' %>
 						<% else %>
@@ -11,6 +11,7 @@
 				<% end %>
 					<div class="dish-name dish-details"><%= dish.name %></div>
 					<div class="dish-price dish-details"><%= dish.price %></div>
+			    <div class="dish-rating single-dish-details"><%= dish.reviews.average(:rating) %></div>
 				<div class="card-body">
 					<div class="card-text dish-description homepage-dish-description">
 						<%= dish.description %>

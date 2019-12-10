@@ -1,0 +1,58 @@
+.review-form-container{
+	margin:10% auto;
+	width: 45%;
+	background-color:#48c6ef ;
+	box-shadow: 4px 7px rgba(0,0,0,0.09);
+	padding: 30px;
+	border-radius: 4px;
+}
+.rating{
+	margin-right: 5%;
+}
+.heading{
+	background-color:#537895;
+	color:white;
+	text-align: center;
+	padding: 3px;
+	font-stretch: 3px;
+	font-family: cursive;
+	font-weight: 600;
+	font-style: bold;
+	border-radius: 2px;
+	border-bottom: 4px solid #ff9a9e;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 3px;
+}
+.review-form{
+	margin-top: 20px;
+}
+.btn4,.btn3 {
+  background-color: #4CAF50;
+  border: 3px solid #4CAF50;
+  color: white;
+  text-transform: uppercase;
+  height: auto;
+  width: inherit;
+  text-shadow: 4px 4px 3px rgba(77, 77, 77, 0.5);
+  box-shadow: 14px 14px rgba(77, 77, 77, 0.1);
+  cursor: pointer;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.btn4:hover {
+  box-shadow: 14px 14px rgba(77, 77, 77, 0.5);
+}
+
+.btn4:active {
+  transform: translate3d(7px, 7px, 0px);
+  box-shadow: 7px 7px rgba(77, 77, 77, 0.5);
+}
+.btn3{
+	background-color: #FFC300;
+	border: 3px solid #FFC300;
+	text-decoration: none;
+}
+.btn3:hover{
+	text-decoration: none;
+	color: white;
+}

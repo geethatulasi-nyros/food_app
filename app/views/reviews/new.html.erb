@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="review-form-container">
+		<div class="heading">
+			<h4>Post review</h4>
+		</div>
+		<div class="review-form">
+			<%= form_with scope: :review, url: dish_reviews_path do |f| %>
+				<!--<%=f.hidden_field :user_id,value:current_user.id %>
+				<%=f.hidden_field :dish_id,value:params[:dish_id] %>-->
+				<div id='rating-form' class='form-group'>
+					<label class="rating">Rating</label>
+				</div>
+				<div class="row form-group">
+					<div class="col-md-2">
+						<%=f.label :review %>
+					</div>
+					<div class="col-md-10">
+						<%=f.text_area :review,class: 'form-control' %>
+					</div>
+				</div>
+				<div class="row d-flex justify-content-between">
+					<%= link_to 'Cancel',{:controller => "dishes", :action => "show",:id=>params[:dish_id]},class: 'btn3' %>
+					<%=f.submit 'Save',class: 'btn4'	%>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>	 

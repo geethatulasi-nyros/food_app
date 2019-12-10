@@ -16,4 +16,11 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require jquery.raty
+//= require ratyrate
+//= require social-share-button
+//= require social-share-button/wechat
+//= require reviews.js
+ 
+ 
+ 

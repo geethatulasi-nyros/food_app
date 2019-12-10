@@ -68,3 +68,5 @@ gem 'popper_js'
 gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'pry'
+gem 'ratyrate'
+gem 'social-share-button'
