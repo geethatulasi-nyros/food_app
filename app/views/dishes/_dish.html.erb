@@ -65,7 +65,8 @@
         </div>
       </div>
       <div class="d-flex justify-content-end social-btns">
-        <%= social_share_button_tag(dish.name, :image => "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/chicken-curry-recipe.jpg",:desc => dish.description,"data-linkedin-description"=>"my site content") %>
+      <%= social_share_button_tag(dish.name, :image => "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/chicken-curry-recipe.jpg",:desc => dish.description,"data-linkedin-description"=>"my site content") %> 
+        <!--<%= rails_social_share_button_tag(dish.name,:url=>"https://10.90.90.148:5000/",:desc=>dish.description,:image => "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/chicken-curry-recipe.jpg") %>-->
       </div>
     </div>
   </div>

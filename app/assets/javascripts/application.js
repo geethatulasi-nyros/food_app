@@ -20,6 +20,8 @@
 //= require ratyrate
 //= require social-share-button
 //= require social-share-button/wechat
+//= require rails-social-share-button
+//= require rails-social-share-button/wechat
 //= require reviews.js
  
  
