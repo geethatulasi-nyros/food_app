@@ -1,7 +1,24 @@
-<div class="container">  
-  <nav class="navbar navbar-expand-lg fixed-top nav">
+<header class="header">
+  <nav class="navbar transparent navbar-expand-lg">
     <div class="navbar-nav mr-auto">
-     <%= link_to 'Post dish', new_dish_path,class: " btn btn-sm btn-success navbar-brand" %>
+      <%= link_to 'Post Dish', new_dish_path,class: " btn btn-sm btn-success navbar-brand" %>
+      <%= link_to 'Home', root_path,class: " btn btn-sm btn-secondary navbar-brand" %>
+    </div>
+    <div class="form-inline center">
+      <%= search_form_for @search do |f| %>
+        <div class="row">
+          <%= f.collection_select :category_id_eq,Category.all,:id,:name,{prompt: "course"},{class: 'form-control'} %>
+            <div class="input-group search-group">
+              <%= f.text_field :name_cont, class: "form-control mr-sm-2",autofocus: true, placeholder: "Search",id: "search-field",data:{autocomplete_source:dishes_autocomplete_path} %>
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="fa fa-times times-icon"></i>
+                </span>
+              </div>
+            </div>
+          <%= f.submit "Search", class: "btn btn-success my-2 my-sm-0" %>
+        </div>
+       <% end %>
     </div>
     <div class="navbar-nav ml-auto user-buttons">
       <% if  user_signed_in? %>
@@ -12,9 +29,6 @@
       <% end %>  
     </div>
   </nav>
-  <div class="row">
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-  </div>
-</div> 
+</header>
+ 
+ 

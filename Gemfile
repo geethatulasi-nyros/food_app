@@ -71,3 +71,10 @@ gem 'pry'
 gem 'ratyrate'
 gem 'social-share-button'
 gem 'rails-social-share-button'
+gem 'ransack', '~> 2.0'
+gem 'jquery-ui-rails'
+gem 'will_paginate', '~> 3.1.0'
+gem "font-awesome-rails"
+gem "jquery-validation-rails"
+gem 'client_side_validations'
+gem "breadcrumbs_on_rails"

@@ -10,7 +10,11 @@
 	position: relative;
 }
 .dishes{
-	margin-top:120px;
+	margin-top:50px;
+	margin-bottom: 80px;
+}
+#img-note{
+	margin-top:5px;
 }
 .dish-details,.single-dish-details{
 	position: absolute;
@@ -22,7 +26,7 @@
 	bottom:140px;
 }
 .single-dish-details{
-	top:170px;
+	bottom:270px;
 }
 .dish-name{
 	text-transform: capitalize;
@@ -48,7 +52,7 @@
 .form-container{
 	padding: 20px;
 	margin-top: 40px;
-	width:50%;
+	/*width:50%;*/
 	border: 1px solid #BFBFBF;
 	border-radius: 4px;
   background-color: white;
@@ -67,6 +71,9 @@
 	background-color:#544a7d;
 }
 .footer {
+	position:fixed;
+	bottom:0;
+	left:0;
 	width: 100%;
 	height: 60px;
   background: #222222 none repeat scroll 0 0;
@@ -88,17 +95,91 @@
   transition: all .2s linear;
  }
 .dish-container{
- 	margin:10% auto;
- 	width:50%;
+ 	margin:5% auto;
+ 	width:100%;
 }
 .single-dish{
 	overflow: hidden;
+	box-shadow: 5px 4px rgba(0,0,0,0.04);
 }
 .dish-rating{
 	right: 30px;
-	top:190px;
+	top:170px;
 	color: blue;
 }
 .social-btns{
 	margin-top: 20px;
+}
+.reviews-container{
+	background-color:white;
+	border: 1px solid #efefef;
+	box-shadow: 5px 4px rgba(0,0,0,0.04);
+}
+.reviews{
+	padding: 20px;
+}
+.username{
+	font-family: helvetica;
+	font-size: 20px;
+	font-weight: 500;
+	font-synthesis: 2px;
+	line-height: 2px;
+}
+.review{
+	margin-top: 5px;
+	color: #9B9B9B;
+}
+.sorting{
+	margin-top: 30px;
+}
+.ui-autocomplete{
+	width: 30%;
+	background-color: white;
+	list-style-type: none;
+	border: 1px solid #efefef;
+	border-radius: 4px;
+	box-shadow: 3px 4px rgba(0,0,0,0.04);
+	padding: 8px;
+}
+.ui-autocomplete li{
+	cursor: pointer;
+	margin:5px 0px;
+}
+.times-icon{
+  cursor: pointer;
+}
+.navbar-brand{
+	font-size:17px;
+}
+.message {
+	color:red;
+  border-bottom-right-radius: 5px 5px;
+  border-top-right-radius: 5px 5px;
+  padding: 2px 5px;
+}
+div.field_with_errors div.ui-effects-wrapper {
+  display: inline-block !important;
+}
+.error{
+	color: red;
+}
+.header{
+	width: 100%;
+	height: 400px;
+	background-image:url("home.jpg");
+	background-repeat:no-repeat;
+	background-size: cover;
+}
+.transparent{
+  border-width: 0px;
+  -webkit-box-shadow: 0px 0px;
+  box-shadow: 0px 0px;
+  background-color: rgba(0,0,0,0.2);
+}
+.breadcrumbs-container{
+	margin-top: 20px;
+	padding: 10px;
+	width: 100%;
+	height: 50px;
+	background-color:#efefef;
 }

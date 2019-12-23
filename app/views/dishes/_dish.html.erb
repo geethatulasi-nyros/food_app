@@ -1,84 +1,46 @@
-<!-- <div class="modal fade" tabindex="-1" id="dish-<%= dish.id%>" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"><%= dish.name %></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<div class="row"> 
+  <div class="col-md-5"> 
+    <div class="card single-dish">
+      <%if dish.images.length > 0 %>
+        <%= image_tag dish.images[0].image.to_s, class: 'dish-image' %>
+      <% else %>
+        <%= image_tag "home-2.jpeg", class: 'dish-image' %>
+      <% end %>
+      <div class="dish-name single-dish-details"><%= dish.name %></div>
+      <div class="dish-price single-dish-details"><%= dish.price %></div>
+      <div class="dish-rating single-dish-details" data-score="<%=  dish.average_stars %>"></div>
+      <div class="card-body">
+        <div class="card-text dish-description">
+          <%= dish.description %>
+        </div>
       </div>
-      <div class="modal-body">
-        <div class="card dish-card">
-					<%= link_to dish_path(dish) do %>
-							<%if dish.images.length > 0 %>
-								<%= image_tag dish.images[0].image.to_s, class: 'dish-image' %>
-							<% else %>
-								<%= image_tag "home-2.jpeg", class: 'dish-image' %>
-							<% end %>
-					<% end %>
-						<div class="dish-name dish-details"><%= dish.name %></div>
-						<div class="dish-price dish-details"><%= dish.price %></div>
-          <div class="card-body">  
-  					<div class="card-text dish-description">
-  						<%= dish.description %>
-  					</div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-end">
+          <!-- <div>
+            <%= link_to 'Back',dishes_path,class: 'btn btn-warning' %>
+          </div> -->
+          <div>
+            <%= link_to 'Post review',new_dish_review_path(dish),class: 'btn btn-info' %>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <%= link_to 'Addreview',new_dish_review_path(dish),class: 'btn btn-info',id: 'add-review' %>
-        <%= link_to "Close","#",:class => 'btn btn-danger',:data=>{dismiss:"modal"} %>
+        <div class="d-flex justify-content-end social-btns">
+        <%= social_share_button_tag(dish.name, :image => "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/chicken-curry-recipe.jpg",:desc => dish.description,"data-linkedin-description"=>"my site content") %> 
+        </div>
       </div>
     </div>
   </div>
-</div>  -->
-<!--<% content_for :head do %>
-  <meta property="fb:app_id" content="518062322126482" />
-  <meta property="og:title" content="<%= dish.name %>" />
-  <meta property="og:description" content="<%= dish.description %>" />
-  <% dish.images.each do %>
-    <meta property="og:image" content="https://media.gettyimages.com/photos/arch-bridge-in-kromlau-picture-id539121576?s=612x612" />
+  <% if @reviews.length > 0 %>
+    <div class="col-md-4 offset-1 reviews-container">
+      <% @reviews.each do |r| %>
+        <div class="reviews">
+          <span class="username"><%= r.user.name if r.user.name%></span>
+          <span class="dish-rating" data-score="<%= r.rating %>"></span>
+          <div class="review">
+            <%= r.review %>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+    </div>
   <% end %>
-<% end %>-->
-
-  <div class="card single-dish">
-    <%if dish.images.length > 0 %>
-      <%= image_tag dish.images[0].image.to_s, class: 'dish-image' %>
-    <% else %>
-      <%= image_tag "home-2.jpeg", class: 'dish-image' %>
-    <% end %>
-    <div class="dish-name single-dish-details"><%= dish.name %></div>
-    <div class="dish-price single-dish-details"><%= dish.price %></div>
-    <div class="dish-rating single-dish-details"><%= dish.reviews.average(:rating) %></div>
-    <div class="card-body">
-      <div class="card-text dish-description">
-        <%= dish.description %>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="d-flex justify-content-between">
-        <div>
-          <%= link_to 'Back',dishes_path,class: 'btn btn-warning' %>
-        </div>
-        <div>
-          <%= link_to 'Addreview',new_dish_review_path(dish),class: 'btn btn-info' %>
-        </div>
-      </div>
-      <div class="d-flex justify-content-end social-btns">
-      <%= social_share_button_tag(dish.name, :image => "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/chicken-curry-recipe.jpg",:desc => dish.description,"data-linkedin-description"=>"my site content") %> 
-        <!--<%= rails_social_share_button_tag(dish.name,:url=>"https://10.90.90.148:5000/",:desc=>dish.description,:image => "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/chicken-curry-recipe.jpg") %>-->
-      </div>
-    </div>
-  </div>
-  <div class="reviews-container">
-    <% @reviews.each do |r| %>
-      <div class="row">
-      <%= r.user.name %>
-      <%= r.rating %>
-      </div>
-      <div>
-      <%= r.review %>
-      </div>
-      <hr>
-    <% end %>
-  </div>
+</div>

@@ -11,7 +11,7 @@
 				<% end %>
 					<div class="dish-name dish-details"><%= dish.name %></div>
 					<div class="dish-price dish-details"><%= dish.price %></div>
-			    <div class="dish-rating single-dish-details"><%= dish.reviews.average(:rating) %></div>
+			    <div class="dish-rating single-dish-details" data-score="<%= dish.reviews.average(:rating) %>"></div>
 				<div class="card-body">
 					<div class="card-text dish-description homepage-dish-description">
 						<%= dish.description %>

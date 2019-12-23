@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_084754) do
+ActiveRecord::Schema.define(version: 2019_12_17_032742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 2019_12_10_084754) do
     t.datetime "updated_at", null: false
     t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
     t.index ["rater_id"], name: "index_average_caches_on_rater_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -41,6 +47,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_084754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_dishes_on_category_id"
     t.index ["user_id"], name: "index_dishes_on_user_id"
   end
 
@@ -87,13 +95,14 @@ ActiveRecord::Schema.define(version: 2019_12_10_084754) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
+    t.float "rating"
     t.string "review"
     t.bigint "dish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["dish_id"], name: "index_reviews_on_dish_id"
+    t.index ["user_id", "dish_id"], name: "udx_reviews_on_user_and_product", unique: true
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -111,6 +120,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_084754) do
   end
 
   add_foreign_key "comments", "dishes"
+  add_foreign_key "dishes", "categories"
   add_foreign_key "dishes", "users"
   add_foreign_key "images", "dishes"
   add_foreign_key "reviews", "dishes"

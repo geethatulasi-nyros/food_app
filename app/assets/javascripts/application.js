@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery-ui
 //= require popper
 //= require bootstrap
 //= require rails-ujs
@@ -23,6 +24,11 @@
 //= require rails-social-share-button
 //= require rails-social-share-button/wechat
 //= require reviews.js
+//= require dishes.js
+//= require home.coffee
+//= require jquery.validate
+//= require jquery.validate.additional-methods
+
  
  
  

@@ -1,11 +1,23 @@
 <div class="header-container">
   <%= render :partial=>"header" %>
 </div>
+ 
 <div class="container">
-  <div class="row dishes">
+	<div class="row sorting">
+	 <div class="col-md-2">
+			<%= form_with model: @dish, local: true do |form| %>
+				<%= select_tag("dishes_page", options_for_select([["Most recent","recent"],["Rating","rating"]]),{:name => "dishes_per_page", :class=>"form-control select_style", :id=>"sort", remote: true} ) %>
+			<% end %>
+		</div>  
+	</div>
+  <div class="dishes">
     <%= render :partial=> "dishes",:locals=>{dishes:@dishes} %>
-  </div>
+	</div>
+  <%= will_paginate @dishes %>
 </div>
-<div class="footer-container">
+<!-- <div class="footer-container">
 	<%= render :partial=>"footer" %>
-</div>
+</div> -->
+ <script type="text/javascript">
+ 	myFunction();
+ </script>

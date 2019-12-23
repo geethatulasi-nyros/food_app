@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="breadcrumbs-container">
+    <%= render_breadcrumbs :separator => ' / ' %>
+  </div>
 	<div class="dish-container">
 		<%= render :partial=>"dish", :locals=>{dish:@dish} %>
 	</div>
