@@ -28,7 +28,6 @@ class DishesController < ApplicationController
 	def new
 		@dish = Dish.new
 		@dish.images.build
-		# add_breadcrumb "HOME", dishes_path, :title => "Back to the Index"
 	add_breadcrumb I18n.t("breadcrumbs.post"),  :new_dish_path
 	end
 	def create
@@ -38,7 +37,6 @@ class DishesController < ApplicationController
 	end
 	def show
 		@reviews = @dish.reviews.includes(:user)
-		# add_breadcrumb "HOME", dishes_path, :title => "Back to the Index"
 		add_breadcrumb I18n.t("breadcrumbs.dish") 
 	end
 	def edit
