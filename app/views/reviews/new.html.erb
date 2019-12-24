@@ -12,10 +12,11 @@
     </div>
   </nav>
 </header> -->
+<div class="breadcrumbs-container">
+  <%= render_breadcrumbs :separator=>"/" %>
+</div>
+<hr width="100%">
 <div class="container">
-  <div class="breadcrumbs-container">
-  	<%= render_breadcrumbs :separator=>"/" %>
-  </div>
   <% flash.each do |key, value| %>
     <div class="alert alert-danger"><%= value %></div>
   <% end %>
@@ -37,8 +38,8 @@
 					</div>
 				</div>
 				<div class="row d-flex justify-content-between">
-					<%= link_to 'Cancel',{:controller => "dishes", :action => "show",:id=>params[:dish_id]},class: 'btn btn-warning' %>
-					<%=f.submit 'Save',class: 'btn btn-success'	%>
+					<%= link_to 'Cancel',{:controller => "dishes", :action => "show",:id=>params[:dish_id]},class: 'btn cancel-btn' %>
+					<%=f.submit 'Save',class: 'btn success-btn'	%>
 				</div>
 			<% end %>
 		</div>

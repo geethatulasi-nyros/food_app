@@ -6,25 +6,29 @@
       <% else %>
         <%= image_tag "home-2.jpeg", class: 'dish-image' %>
       <% end %>
-      <div class="dish-name single-dish-details"><%= dish.name %></div>
-      <div class="dish-price single-dish-details"><%= dish.price %></div>
-      <div class="dish-rating single-dish-details" data-score="<%=  dish.average_stars %>"></div>
-      <div class="card-body">
-        <div class="card-text dish-description">
-          <%= dish.description %>
+      <div class="card-body dish-card-body">
+        <div class="card-text">
+          <div class="row">
+            <div class="col-md-9"><%= dish.name %></div>
+            <div class="col-md-3"><%= dish.price %></div>
+          </div>
+          <div class="d-flex justify-content-start">
+          <div class="dish-rating" data-score="<%=  dish.average_stars %>">
+            
+          </div>
+          <div><%= dish.reviews.length %> reviews</div>
+          </div>
+          <div class="dish-description">
+            <%= dish.description %>
+          </div>
         </div>
       </div>
       <div class="card-footer">
-        <div class="d-flex justify-content-end">
-          <!-- <div>
-            <%= link_to 'Back',dishes_path,class: 'btn btn-warning' %>
-          </div> -->
+        <div class="d-flex justify-content-between">
           <div>
-            <%= link_to 'Post review',new_dish_review_path(dish),class: 'btn btn-info' %>
+            <%= link_to 'Write Review',new_dish_review_path(dish),class: 'btn success-btn' %>
           </div>
-        </div>
-        <div class="d-flex justify-content-end social-btns">
-        <%= social_share_button_tag(dish.name, :image => "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/chicken-curry-recipe.jpg",:desc => dish.description,"data-linkedin-description"=>"my site content") %> 
+          <%= social_share_button_tag(dish.name, :image => "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/chicken-curry-recipe.jpg",:desc => dish.description,"data-linkedin-description"=>"my site content") %> 
         </div>
       </div>
     </div>

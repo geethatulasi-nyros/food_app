@@ -1,32 +1,57 @@
 <header class="header">
-  <nav class="navbar transparent navbar-expand-lg">
-    <div class="navbar-nav mr-auto">
-      <%= link_to 'Post Dish', new_dish_path,class: " btn btn-sm btn-success navbar-brand" %>
-      <%= link_to 'Home', root_path,class: " btn btn-sm btn-secondary navbar-brand" %>
-    </div>
-    <div class="form-inline center">
+  <nav class="navbar header-main-nav navbar-expand-lg">
+    <a class="navbar-brand logo mr-auto" href="#">
+      <%= image_tag "logo.jpeg", class: "logoimage" %>
+      <span id="title">Forkly</span> 
+    </a>
+    <div class="form-inline mr-auto">
       <%= search_form_for @search do |f| %>
         <div class="row">
           <%= f.collection_select :category_id_eq,Category.all,:id,:name,{prompt: "course"},{class: 'form-control'} %>
             <div class="input-group search-group">
-              <%= f.text_field :name_cont, class: "form-control mr-sm-2",autofocus: true, placeholder: "Search",id: "search-field",data:{autocomplete_source:dishes_autocomplete_path} %>
+              <%= f.text_field :name_cont, class: "form-control",autofocus: true, placeholder: "Search",id: "search-field",data:{autocomplete_source:dishes_autocomplete_path} %>
               <div class="input-group-append">
                 <span class="input-group-text">
                   <i class="fa fa-times times-icon"></i>
                 </span>
               </div>
             </div>
-          <%= f.submit "Search", class: "btn btn-success my-2 my-sm-0" %>
+          <%= f.submit "search", class: "btn search-btn" %>
         </div>
-       <% end %>
+      <% end %>
     </div>
-    <div class="navbar-nav ml-auto user-buttons">
-      <% if  user_signed_in? %>
-        <!--<%= link_to 'Edit user', edit_user_registration_path,class: 'btn btn-success' %>-->
-        <%= link_to "Signout", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-danger btn-create navbar-brand mr-auto" %>
-        <% else %>
-          <%= link_to 'Signin', new_user_session_path, class: 'btn btn-sm btn-primary sign-btn navbar-brand mr-auto' %>
-      <% end %>  
+    <div class="navbar-nav ml-auto nav-flex-icons">
+      <div class="nav-item dropdown lg-user">
+        <a class="btn btn-secondary nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-default sub-nav-links"
+          aria-labelledby="navbarDropdownMenuLink-333">
+          <% if  user_signed_in? %>
+            <%= link_to "SignOut", destroy_user_session_path, method: :delete, class: "btn-create" %>
+            <% else %>
+              <%= link_to 'SignIn', new_user_session_path, class: 'sign-btn' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar header-sub-nav navbar-expand-lg justify-content-between">
+    <div class="navbar-nav sub-nav-links">
+      <%= link_to 'Home', root_path %>
+    </div>
+    <div class="navbar-nav sub-nav-links">
+      <%= link_to 'Post Dish', new_dish_path %>
+    </div>
+    <div class="navbar-nav">
+      <div class="nav-item dropdown">
+        <div class="sorting">
+          <%= form_with model: @dish, local: true do |form| %>
+            <%= select_tag("dishes_page", options_for_select([["Most recent","recent"],["Rating","rating"]]),{:name => "dishes_per_page", :class=>"form-control select_style", :id=>"sort", remote: true} ) %>
+          <% end %>
+        </div>
+      </div> 
     </div>
   </nav>
 </header>

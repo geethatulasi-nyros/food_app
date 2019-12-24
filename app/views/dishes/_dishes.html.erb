@@ -1,23 +1,23 @@
 <div class="row dish-row">
 	<% dishes.each do |dish| %>
 		<div class="col-md-4">
-		 	<div class="card dish-card">
-				<%= link_to  dish_path(dish)  do %>
+			<%= link_to dish_path(dish)  do %>
+			 	<div class="card dish-card">
 						<%if dish.images.length > 0 %>
 							<%= image_tag dish.images[0].image.to_s, class: 'dish-image' %>
 						<% else %>
 							<%= image_tag "home-2.jpeg", class: 'dish-image' %>
 						<% end %>
-				<% end %>
-					<div class="dish-name dish-details"><%= dish.name %></div>
-					<div class="dish-price dish-details"><%= dish.price %></div>
-			    <div class="dish-rating single-dish-details" data-score="<%= dish.reviews.average(:rating) %>"></div>
-				<div class="card-body">
-					<div class="card-text dish-description homepage-dish-description">
-						<%= dish.description %>
+						<div class="dish-name dish-details"><%= dish.name %></div>
+						<div class="dish-price dish-details"><%= dish.price %></div>
+				    <div class="dish-rating single-dish-details" data-score="<%= dish.reviews.average(:rating) %>"></div>
+					<div class="card-body">
+						<div class="card-text dish-description homepage-dish-description">
+							<%= dish.description %>
+						</div>
 					</div>
 				</div>
-			</div>
+			<% end %>
 		</div>
 	<% end %>
 </div>

@@ -1,13 +1,3 @@
-$(document).ready(function(){
-	$("#new_user").validate({
-		rules:{
-			"user[name]":{
-				required:true,
-				maxlength:20
-			}
-		}
-	})
-})
 function myFunction(){
 	$("#sort").change(function(){
 		var q=$("#dish_search input[type='text']").val();
@@ -67,4 +57,9 @@ function myFunction(){
 		}
 	})
 }
+$(document).ready(function(){
+	 $('#sidebarCollapse').on('click', function () {
+	 		$('#sidebar').toggleClass('active');
+    });
+})
  
