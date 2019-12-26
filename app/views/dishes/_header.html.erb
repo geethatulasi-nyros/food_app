@@ -7,9 +7,9 @@
     <div class="form-inline mr-auto">
       <%= search_form_for @search do |f| %>
         <div class="row">
-          <%= f.collection_select :category_id_eq,Category.all,:id,:name,{prompt: "course"},{class: 'form-control'} %>
+          <%= f.collection_select :category_id_eq,Category.all,:id,:name,{prompt: "course"},{class: 'form-control',id: "category_select"} %>
             <div class="input-group search-group">
-              <%= f.text_field :name_cont, class: "form-control",autofocus: true, placeholder: "Search",id: "search-field",data:{autocomplete_source:dishes_autocomplete_path} %>
+              <%= f.text_field :name_cont, class: "form-control",autofocus: true, placeholder: "Search",id: "search-field",data:{autocomplete_source:dishes_autocomplete_path(:category=> 6)} %>
               <div class="input-group-append">
                 <span class="input-group-text">
                   <i class="fa fa-times times-icon"></i>
@@ -55,5 +55,3 @@
     </div>
   </nav>
 </header>
- 
- 

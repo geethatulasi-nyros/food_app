@@ -10,8 +10,35 @@ function myFunction(){
  		  },
  	  });
   });
+	// $('#search-field').on('autocompletechange change', function () {
+	// 	$('#search-field').autocomplete({
+	//     source: function (request, response) {
+	//     	var c_id = $('#category_select').find(':selected').val();
+	// 	    $.ajax({
+	// 	      url: "/dishes/autocomplete", // should be with '/'
+	// 	      dataType: 'json',
+	// 	      data: { term: request.term,category:c_id},
+	// 	      success: function(data) {
+	// 	        // call response to return the result to autocomplete box
+	// 	        response(data);
+	// 	      }
+	// 	    });
+	//   	}
+	//   });
+ //  });
   $('#search-field').autocomplete({
-    source: $('#search-field').data('autocomplete-source')
+    // source: $('#search-field').data('autocomplete-source')
+    source: function (request, response) {
+   	var c_id = $('#category_select').find(':selected').val();
+	    $.ajax({
+	      url: "/dishes/autocomplete", // should be with '/'
+	      dataType: 'json',
+	      data: { term: request.term,category:c_id },
+	      success: function(data) {
+	        response(data);
+	      }
+	    });
+  	}
   });
   if($('.pagination').length){
 	  $(window).scroll(function(){

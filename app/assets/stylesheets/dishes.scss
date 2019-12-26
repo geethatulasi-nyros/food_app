@@ -224,6 +224,7 @@ div.field_with_errors div.ui-effects-wrapper {
   background-color: #CAC531;
   display: flex;
   align-items: space-between;
+  width: 100%;
 }
 .dish-row a{
 	text-decoration: none;
@@ -282,4 +283,16 @@ div.field_with_errors div.ui-effects-wrapper {
 	font-family: cursive;
 	font-weight: 600;
 	font-style: bold;
+}
+.dropdown-menu-right{
+	text-align: center;
+}
+#no-data{
+	text-align: center;
+	color: gray;
+	font-size:1rem;
+	font-weight: 600;
+	font-stretch: 4px;
+	font-family: helvetica;
+	line-height: 4px;
 }

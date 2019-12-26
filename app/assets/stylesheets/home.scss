@@ -46,9 +46,6 @@ background-color: #ECA4A4;
 .signcard-header h3{
 color: white;
 }
-.search-group{
-	margin:0px 4px;
-}
 .input-group-prepend span{
 	width: 50px;
 	background-color: #CAC531;
@@ -114,9 +111,11 @@ input:focus{
 .search-group{
 	background-color:white;
 	border-radius:3px;
+	margin:0px 8px;
 }
 .search-group input{
 	border:none;
+	width: 300px;
 }
 .field input{
 	width: 100%;

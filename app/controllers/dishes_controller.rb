@@ -6,11 +6,13 @@ class DishesController < ApplicationController
 		@search = Dish.includes(:images).ransack(params[:q])
 		@search.sorts = ['created_at DESC'] if @search.sorts.empty?
 		@dishes = @search.result.paginate(page:params[:page],per_page:9)
-
 	end
 	def autocomplete
-		@dishes = Dish.distinct.order(:name).where("name Ilike ?","%#{params[:term]}%").pluck(:name)
-		@dishes.collect {|dish| {"value" => dish["term"], "type" => dish["dish_type"] }}
+		if params[:category] == ""
+			@dishes =Dish.distinct.order(:name).where("name Ilike ?","%#{params[:term]}%").pluck(:name)
+		else
+			@dishes = Dish.distinct.order(:name).where("category_id = ? AND name Ilike ?",params[:category].to_i,"%#{params[:term]}%").pluck(:name)
+		end
 		render json: @dishes 
 	end
 	def search
