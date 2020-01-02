@@ -1,35 +1,51 @@
 <div class="auth-container">
-  <div class="col-md-6 offset-5 signin-container">
+  <div class="col-md-5 offset-6 signin-container">
     <div class="d-flex justify-content-center h-100">
       <div class="card sign-in-card">
         <div class="card-header signcard-header">
           <h3>Sign In</h3> 
+          <div class="d-flex justify-content-end social_icon">
+            <%- if devise_mapping.omniauthable? %>
+              <!--<%- resource_class.omniauth_providers.each do |provider| %>
+                <%= link_to omniauth_authorize_path(resource_name, provider) do %> 
+                  <span><i class="fa fa-<%= provider %>-square"></i></span>
+                <% end %>
+              <% end %>-->
+              <%= link_to omniauth_authorize_path(resource_name, :facebook) do %> 
+                  <span><i class="fa fa-facebook-square"></i></span>
+              <% end %>
+              <%= link_to omniauth_authorize_path(resource_name,:google_oauth2) do %>
+                <span><i class="fa fa-google-plus-square"></i></span>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-        <div class="card-body">
+        <div class="card-body sign-card-body">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name),id: "new-signin") do |f| %>
+          <div class="row">
             <div class="field input-group form-group">
                <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-user"></i></span>
               </div>
               <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Email",class: "form-control"  %>
-              <div class="error-label"></div>
             </div>
-
+            <div class="error-label"></div>
+          </div>
+          <div class="row">
             <div class="field input-group form-group">
                <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-key"></i></span>
               </div>
               <%= f.password_field :password, autocomplete: "current-password",placeholder: "Password",class: 'form-control' %>
-              <div class="error-label"></div>
             </div>
-
-            <% if devise_mapping.rememberable? %>
-              <div class="row align-items-center remember">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me,id:"remember-text" %>
-              </div>
-            <% end %>
-
+            <div class="error-label"></div>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="form-group form-check remember">
+              <%= f.check_box :remember_me,class: 'form-check-input' %>
+              <%= f.label :remember_me,id:"remember-text",class: 'form-check-label' %>
+            </div>
+          <% end %>
             <div class="actions">
               <%= f.submit "Sign In",class: 'btn float-right login_btn' %>
             </div>
@@ -54,19 +70,21 @@
     },
     messages:{
       "user[email]":{
-        required:"Email is required"
+        required:"Email Is Required"
       },
       "user[password]":{
-        required:"password is required"
+        required:"Password Is Required"
       }
     },
     errorElement : 'span',
     errorLabelContainer: '.errorTxt',
     errorPlacement: function(error,element) {
-      error.appendTo(element.next());
+      error.appendTo(element.parent().next());
     },
   })
   $('.auth-container').css({ height: $(window).innerHeight() });
 </script>
 
- 
+ <style type="text/css">
+
+ </style>

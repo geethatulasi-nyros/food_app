@@ -22,23 +22,27 @@
 	margin-left:20px;
 }
 .signup-container,.signin-container{
-/*margin-top:10%;*/
 	height: 100%; 
-/*align-content: center;*/
 }
-.sign-card,.errors-card{
-height: 420px;
-margin-top: auto;
-margin-bottom: auto;
-width: 600px;
-background-color: #ECA4A4;
+.sign-card{
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 100%;
+	background-color: rgba(0,0,0,0.4) !important;
 }
+/*.errors-card{
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 100%;
+	background-color: rgba(0,0,0,0.4) !important;
+}*/
+
 .sign-in-card{
-height: 420px;
-margin-top: auto;
-margin-bottom: auto;
-width: 100%;
-background-color: #ECA4A4;
+	height: 420px;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 100%;
+	background-color: rgba(0,0,0,0.4) !important;
 }
 .errors-card{
 	height: 420px;
@@ -48,7 +52,7 @@ color: white;
 }
 .input-group-prepend span{
 	width: 50px;
-	background-color: #CAC531;
+	background-color: #FFC312;
 	color: black;
 	border:0 !important;
 }
@@ -61,7 +65,7 @@ input:focus{
 
 .login_btn{
 	color: white;
-	background-color: #CAC531;
+	background-color: #FFC312;
 	width: 100px;
 }
 
@@ -69,9 +73,11 @@ input:focus{
 	color: white;
 	background-color: #ECE867;
 }*/
-
+.sign-card-body{
+	margin:0px 10px;
+}
 .links{
-	color: #66A6B6;
+	color: #FFC312;
 	text-decoration: none;
 }
 .links:hover{
@@ -82,13 +88,6 @@ input:focus{
 }
 .remember{
 	color: white;
-}
-.remember input
-{
-	width: 20px;
-	height: 20px;
-	margin-left: 15px;
-	margin-right: 5px;
 }
 #error_explanation{
 	color:white;
@@ -108,26 +107,31 @@ input:focus{
 .field_with_errors{
 	width:309;
 }
-.search-group{
-	background-color:white;
-	border-radius:3px;
-	margin:0px 8px;
-}
-.search-group input{
-	border:none;
-	width: 300px;
-}
-.field input{
-	width: 100%;
-}
+ 
 .error-label{
-	width: 30%;
-	margin-left: 3px;
-	color: white;
+	color: #bd2121c9;
+	margin-bottom:10px;
 }
 .auth-container{
 	width: 100%;
 	background-image: url("authhome.jpeg");
 	background-repeat: no-repeat;
 	background-size:cover;
+}
+.social_icon span{
+	font-size: 50px;
+	margin-left: 10px;
+	color: #FFC312;
+}
+.social_icon span:hover{
+	color: white;
+	cursor: pointer;
+}
+.social_icon{
+	position: absolute;
+	right: 20px;
+	top: -45px;
+}
+.field > .form-control,.input-field>.form-control{
+	border-radius: 4px;
 }

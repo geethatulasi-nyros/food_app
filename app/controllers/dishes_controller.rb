@@ -7,11 +7,13 @@ class DishesController < ApplicationController
 		@search.sorts = ['created_at DESC'] if @search.sorts.empty?
 		@dishes = @search.result.paginate(page:params[:page],per_page:9)
 	end
+	def healthy
+	end
 	def autocomplete
 		if params[:category] == ""
-			@dishes =Dish.distinct.order(:name).where("name Ilike ?","%#{params[:term]}%").pluck(:name)
+			@dishes =Dish.distinct.order(:name).where("name Ilike ?","#{params[:term]}%").pluck(:name)
 		else
-			@dishes = Dish.distinct.order(:name).where("category_id = ? AND name Ilike ?",params[:category].to_i,"%#{params[:term]}%").pluck(:name)
+			@dishes = Dish.distinct.order(:name).where("category_id = ? AND name Ilike ?",params[:category].to_i,"#{params[:term]}%").pluck(:name)
 		end
 		render json: @dishes 
 	end
@@ -42,6 +44,7 @@ class DishesController < ApplicationController
 		add_breadcrumb I18n.t("breadcrumbs.dish") 
 	end
 	def edit
+		# @dish.images.build
 	end
 	def update
 		@dish.update(dish_params)

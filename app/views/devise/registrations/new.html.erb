@@ -4,7 +4,7 @@
       <%= render "devise/shared/error_messages", resource: resource %>
     </div>
   <% end %>
-  <div class="col-md-6 offset-5 signup-container">  
+  <div class="col-md-5 offset-6 signup-container">  
     <div class="d-flex justify-content-center h-100">
       <% if resource.errors.any? %>
       <div class="card errors-card">
@@ -13,55 +13,65 @@
       <% end %>
         <div class="card-header signcard-header center">
           <h3>Sign Up</h3>
+          <div class="d-flex justify-content-end social_icon">
+            <%- if devise_mapping.omniauthable? %>
+              <%= link_to omniauth_authorize_path(resource_name, :facebook) do %> 
+                  <span><i class="fa fa-facebook-square"></i></span>
+              <% end %>
+              <%= link_to omniauth_authorize_path(resource_name,:google_oauth2) do %>
+                <span><i class="fa fa-google-plus-square"></i></span>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-        <div class="card-body">
+        <div class="card-body sign-card-body">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <div class="field input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-pencil"></i></span>
+            <div class="row">
+              <div class="input-field input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-pencil"></i></span>
+                </div>
+                <%= f.text_field :name,autofocus:true,autocomplete:"name",placeholder: "Name",class: 'form-control' %>
               </div>
-              <%= f.text_field :name,autofocus:true,autocomplete:"name",placeholder: "Name",class: 'form-control' %>
-              <br />
               <div class="error-label"></div>
             </div>
-            <div class="field input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-user"></i></span>
+            <div class="row">
+              <div class="input-field input-group form-group">
+                 <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <%= f.email_field :email,autocomplete: "email",placeholder: "Email",class: "form-control"  %>
               </div>
-              <%= f.email_field :email, autocomplete: "email",placeholder: "Email",class: 'form-control'  %>
-              <br />
               <div class="error-label"></div>
             </div>
-
-            <div class="field input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-key"></i></span>
+            <div class="row">
+              <div class="input-field input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-key"></i></span>
+                </div>
+                <% if @minimum_password_length %>
+                <% end %> 
+                <%= f.password_field :password, autocomplete: "new-password",placeholder:"Password",class: 'form-control'  %> 
               </div>
-              <% if @minimum_password_length %>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password",placeholder:"Password",class: 'form-control'  %> 
-              <br />
               <div class="error-label"></div>
             </div>
-
-             <div class="field input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-key"></i></span>
-              </div>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"Confirm Password",class: 'form-control' %>
-              <br />
+            <div class="row">
+               <div class="input-field input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-key"></i></span>
+                </div>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"Confirm Password",class: 'form-control' %>
+              </div> 
               <div class="error-label"></div>
-            </div> 
+            </div>
 
             <div class="actions">
               <%= f.submit "Sign Up",class: "btn float-right login_btn" %>
             </div>
           <% end %>
         </div>
-        <div class="card-footer">
-          <div class="d-flex justify-content-center links">
-            <span class="have-text">Already have an account?</span><%= render "devise/shared/links" %>
-          </div>
+        <div class="card-footer links-footer">
+          <%= render "devise/shared/links" %>
         </div>
       </div>
     </div>
@@ -86,22 +96,22 @@
     },
     messages:{
       "user[name]":{
-        required:"Name is required"
+        required:"Name Is Required"
       },
       "user[email]":{
-        required:"Email is required"
+        required:"Email Is Required"
       },
       "user[password]":{
-        required:"password is required"
+        required:"Password Is Required"
       },
       "user[password_confirmation]":{
-        required:"confirm_password is required"
+        required:"Confirm_password Is Required"
       },
     },
     errorElement : 'span',
     errorLabelContainer: '.errorTxt',
     errorPlacement: function(error,element) {
-      error.appendTo(element.next().next());
+      error.appendTo(element.parent().next());
     },
   })
   $('.auth-container').css({ height: $(window).innerHeight() });

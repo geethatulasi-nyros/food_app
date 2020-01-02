@@ -1,17 +1,22 @@
-<div class="breadcrumbs-container">
-	<%= render_breadcrumbs :separator => ' / ' %>
+<div class="form-image">
+<div>
+	<%= render partial: "header_two" %>
 </div>
-<hr width="100%">
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 offset-3 form-container">
-			<h4 class="text-center create-text">Create Dish</h4>
-			<div class="dish-form">
-				<%= render partial:"form" %>
+	<div class="dish-form-container">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7 form-container">
+					<h4 class="create-text">Post Dish</h4>
+					<div class="dish-form">
+						<%= render partial:"form" %>
+					</div>
+				</div>
 			</div>
-		</div>
+		</div>	 
 	</div>
-</div>	 
+</div>
 <script type="text/javascript">
 	myFunction();
+	$('.form-image').css({ height: $(window).innerHeight() });
+	$('.dish-form-container').css({ height: $(window).innerHeight() - 50 });
 </script>

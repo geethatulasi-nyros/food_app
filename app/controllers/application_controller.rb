@@ -2,6 +2,17 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   add_breadcrumb I18n.t("breadcrumbs.homepage"), :root_path
+
+  def create
+    super
+    flash.delete(:notice)
+  end
+
+  # DELETE /resource/sign_out
+  def destroy
+    super
+    flash.delete(:notice)
+  end
   protected
 
     def configure_permitted_parameters

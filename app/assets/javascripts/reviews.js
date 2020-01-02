@@ -1,20 +1,20 @@
-$(document).on("turbolinks:load",function(){
-	$("#rating-form").raty({
-		number:5,
-		numberMax:5,
-		score:1,
-		path: '/assets/',
-		scoreName: 'review[rating]'
-	});
-	$(".dish-rating").raty({
-		numberMax:5,
-		readOnly:true,
-		score: function(){
-			return $(this).attr('data-score');
-		},
-		path: '/assets/'
-	});
-})
+// $(document).on("turbolinks:load",function(){
+// 	$("#rating-form").raty({
+// 		number:5,
+// 		numberMax:5,
+// 		score:1,
+// 		path: '/assets/',
+// 		scoreName: 'review[rating]'
+// 	});
+// 	$(".dish-rating").raty({
+// 		numberMax:5,
+// 		readOnly:true,
+// 		score: function(){
+// 			return $(this).attr('data-score');
+// 		},
+// 		path: '/assets/'
+// 	});
+// })
 function Ratings() {
 	$("#rating-form").raty({
 		number:5,
@@ -24,6 +24,7 @@ function Ratings() {
 		scoreName: 'review[rating]'
 	});
 	$(".dish-rating").raty({
+		number:5,
 		numberMax:5,
 		readOnly:true,
 		score: function(){
@@ -40,8 +41,8 @@ function Ratings() {
 		},
 		 messages: {
 		  name:{
-		    required: "name is required.",
-		    maxlength: "name must be less than 20"
+		    required: "Name is required.",
+		    maxlength: "Name must be less than 20"
 		  } 
 		}
 	});
@@ -56,11 +57,14 @@ function Ratings() {
 		},
 		messages:{
 			"review[rating]":{
-				required:"Please enter rating"
+				required:"Please Enter Rating"
 			},
 			"review[review]":{
-				required:"Please enter review"
+				required:"Please Enter Review"
 			}
+		},
+		errorPlacement:function(error,element){
+			error.appendTo(element.next());
 		}
 	});
 }

@@ -78,3 +78,5 @@ gem "font-awesome-rails"
 gem "jquery-validation-rails"
 gem 'client_side_validations'
 gem "breadcrumbs_on_rails"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
