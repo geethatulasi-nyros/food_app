@@ -11,8 +11,11 @@ class ReviewsController < ApplicationController
 	end
 	def create
 		@review = @dish.reviews.create(review_params)
-		@review.save!
-		redirect_to dish_path(@dish)
+		respond_to do |format|
+			if @review.save!
+			format.html{redirect_to dish_path(@dish),flash:{success:'Review Created Successfully'}}
+			end
+		end
 	end
 	def show
 	end
@@ -26,6 +29,15 @@ class ReviewsController < ApplicationController
 		end
 		def review_error
 			flash[:error] = 'You can not give more than one review'
-			redirect_to new_dish_review_path
+			redirect_to dish_path(@dish)
 		end
+		# protected
+		# def authenticate_user!
+		# 	if user_signed_in?
+		# 		super
+		# 	else
+		# 		flash[:error] = 'You need to sign in before giving review'
+		# 	end
+		# end
+
 end

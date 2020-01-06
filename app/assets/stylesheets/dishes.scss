@@ -78,7 +78,7 @@
 	border: 1px solid #BFBFBF;
   background-color: white;
 	box-shadow: 8px 6px rgba(0,0,0,0.03);
-	margin:8% auto;
+	margin:3% auto;
 }
 .dish-form{
 	margin-top: 20px;
@@ -223,6 +223,9 @@ div.field_with_errors div.ui-effects-wrapper {
 	font-size: 1.5rem;
 	font-weight: bold;
 }
+.home-title{
+	margin-top: 5px;
+}
 .dish-row a{
 	text-decoration: none;
 }
@@ -341,7 +344,7 @@ div.field_with_errors div.ui-effects-wrapper {
 	width: 100%;
 }
 .search-form #search-field{
-	width: 680px;
+	width: 700px;
 }
 #category_select{
 	margin-right: 10px;
@@ -416,11 +419,11 @@ div.field_with_errors div.ui-effects-wrapper {
 	padding: 0px;
 	height: 50px;
 }
-.user-recipe{
+.user-recipe,.user-name{
 	text-transform: capitalize;
 }
-.header-main-nav-two{
-	padding: 5px;
+.header-main-nav-two,.header-main-nav{
+	padding: 5px 0px;
 }
 .cancel-btn:hover{
 	color: white;
@@ -489,4 +492,6 @@ select.form-control:not([size]):not([multiple]){
 .dish-container{
 	margin-top: 20px;
 }
- 
+.search-group,#category_select{
+	height: 35px;
+}

@@ -80,3 +80,4 @@ gem 'client_side_validations'
 gem "breadcrumbs_on_rails"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'toastr-rails'

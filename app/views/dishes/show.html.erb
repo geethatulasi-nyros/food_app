@@ -1,10 +1,18 @@
 <div>
-  <%= render partial: "header_two" %>
+  <%= render partial: "header" %>
 </div>
 <!-- <div class="breadcrumbs-container">
   <%= render_breadcrumbs :separator => ' / ' %>
 </div>
 <hr width="100%"> -->
+<% unless flash.empty? %>
+    <script type="text/javascript">
+        <% flash.each do |f| %>
+        <% type = f[0].to_s %>
+        toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+    </script>
+<% end %>
 <div class="dish-container">
   <div class="container">
   	<div class="row">
@@ -49,8 +57,13 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <!--<%= link_to 'Edit',edit_dish_path(@dish) %>-->
-            <%= link_to 'Post Review',new_dish_review_path(@dish),class: 'btn success-btn' %>
+            <% if user_signed_in? %>
+              <%= link_to 'Post Review',new_dish_review_path(@dish),remote: true,class: 'btn success-btn' %>
+            <% else %>
+            <span class="tool-tip" data-toggle="tooltip" data-placement="bottom" title="Sign in to post a review">
+              <%= button_to "Post Review",{},class: 'btn review-disable-btn',disabled: true %>
+            </span>
+            <% end %>
           </div>
         </div>
       </div>
@@ -80,5 +93,9 @@
   <% end %>
 </div>
 <script type="text/javascript">
+  myFunction();
   Ratings();
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+  });
 </script>

@@ -16,7 +16,6 @@
 //= require bootstrap
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery.raty
 //= require ratyrate
 //= require social-share-button
@@ -28,7 +27,23 @@
 //= require home.coffee
 //= require jquery.validate
 //= require jquery.validate.additional-methods
+//= require toastr
 
- 
+ $(document).ready(function() {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "positionClass": "toast-top-right",
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+});
  
  

@@ -15,9 +15,9 @@
       </nav>
     </div>
     <nav class="navbar header-main-nav navbar-expand-lg">
-      <a class="navbar-brand" href="#">
+      <%= link_to root_path,class: 'navbar-brand' do %>
         <span id="title">FORKLY</span> 
-      </a>
+      <% end %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="form-inline search-form">
           <%= search_form_for @search do |f| %>

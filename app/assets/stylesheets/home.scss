@@ -30,12 +30,12 @@
 	width: 100%;
 	background-color: rgba(0,0,0,0.4) !important;
 }
-/*.errors-card{
+.errors-card{
 	margin-top: auto;
 	margin-bottom: auto;
 	width: 100%;
 	background-color: rgba(0,0,0,0.4) !important;
-}*/
+}
 
 .sign-in-card{
 	height: 420px;
@@ -134,4 +134,7 @@ input:focus{
 }
 .field > .form-control,.input-field>.form-control{
 	border-radius: 4px;
+}
+.field_with_errors{
+	width: 423.83px;
 }

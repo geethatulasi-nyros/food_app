@@ -1,8 +1,10 @@
 <div class="auth-container">
   <%if resource.errors.any? %>
-    <div class="alert alert-danger">
-      <%= render "devise/shared/error_messages", resource: resource %>
-    </div>
+    <script type="text/javascript">
+      <% resource.errors.full_messages.each do |message| %>
+        toastr.error('<%= message %>')  
+      <% end %>
+    </script>
   <% end %>
   <div class="col-md-5 offset-6 signup-container">  
     <div class="d-flex justify-content-center h-100">

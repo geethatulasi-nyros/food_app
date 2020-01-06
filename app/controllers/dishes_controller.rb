@@ -30,16 +30,25 @@ class DishesController < ApplicationController
 	end
 
 	def new
+		@search = Dish.includes(:images).ransack(params[:q])
+		@dishes = @search.result
 		@dish = Dish.new
 		@dish.images.build
-	add_breadcrumb I18n.t("breadcrumbs.post"),  :new_dish_path
+		add_breadcrumb I18n.t("breadcrumbs.post"),  :new_dish_path
 	end
 	def create
 		@dish = current_user.dishes.new(dish_params)
-		@dish.save!
-		redirect_to user_session_path
+		if @dish.save!
+			flash[:success] = "Dish Posted Successfully"
+			redirect_to root_path
+		else
+			flash[:error] = "Dish not Posted"
+			redirect_to new_dish_path
+		end
 	end
 	def show
+		@search = Dish.includes(:images).ransack(params[:q])
+		@dishes = @search.result
 		@reviews = @dish.reviews.includes(:user)
 		add_breadcrumb I18n.t("breadcrumbs.dish") 
 	end
