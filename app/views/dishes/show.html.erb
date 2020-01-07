@@ -1,10 +1,6 @@
 <div>
   <%= render partial: "header" %>
 </div>
-<!-- <div class="breadcrumbs-container">
-  <%= render_breadcrumbs :separator => ' / ' %>
-</div>
-<hr width="100%"> -->
 <% unless flash.empty? %>
     <script type="text/javascript">
         <% flash.each do |f| %>
@@ -36,7 +32,6 @@
         <div class="row">
           <div class="col-md-8">
             <span class="dish-rating" data-score="<%=  @dish.average_stars %>">
-            
             </span>
             <span><%= @dish.reviews.length %> Reviews</span>
           </div>
@@ -54,6 +49,10 @@
             <span class="recipe-by">Recipe By:</span>
             <span class="user-recipe"><%= @dish.user.name %></span>
           </div>
+        </div>
+        <div>
+          <span class="recipe-by">Related_to:</span>
+          <span class="user-recipe"><%= @dish.category.name %></span>
         </div>
         <div class="row">
           <div class="col-md-12">

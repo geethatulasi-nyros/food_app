@@ -9,9 +9,6 @@
 			 		<span id="ratetext">Rate & Review</span><br/>
 			 	 	<p class="review-dish-name"><%= @dish.name %></p> 
 				</div>
-			<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button> -->
 		</div>
 		<div class="modal-body">
 			<div class="review-user">
@@ -26,12 +23,8 @@
 			<div class="review-form">
 				<%= form_for @review, url: dish_reviews_path  do |f| %>
 					<div id='rating-form' class='form-group'>
-						<!-- <label class="rating">Rating</label> -->
 					</div>
 					<div class="row form-group">
-						<!-- <div class="col-md-2">
-							<%=f.label :review %>
-						</div> -->
 						<div class="review col-md-12">
 							<%=f.text_field :review,rows:2,maxlength:200,placeholder:'Describe your experience',class: 'form-control',validate: { presence: true }%>
 						<div class="error-text"></div>

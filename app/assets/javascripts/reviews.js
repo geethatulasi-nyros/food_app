@@ -1,20 +1,3 @@
-// $(document).on("turbolinks:load",function(){
-// 	$("#rating-form").raty({
-// 		number:5,
-// 		numberMax:5,
-// 		score:1,
-// 		path: '/assets/',
-// 		scoreName: 'review[rating]'
-// 	});
-// 	$(".dish-rating").raty({
-// 		numberMax:5,
-// 		readOnly:true,
-// 		score: function(){
-// 			return $(this).attr('data-score');
-// 		},
-// 		path: '/assets/'
-// 	});
-// })
 function Ratings() {
 	$("#rating-form").raty({
 		number:5,

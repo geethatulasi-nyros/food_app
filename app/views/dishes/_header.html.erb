@@ -32,10 +32,9 @@
                   </div>
                 </div>
                 <%= f.collection_select :category_id_eq,Category.all,:id,:name,{prompt: "Course"},{class: 'form-control',id: "category_select"} %>
-              <!--<%= f.submit "Search", class: "btn search-btn" %>-->
-              <%= button_tag( :class => "search-btn") do %>
-                <i class="fa fa-search"></i>
-              <% end %>
+                <%= button_tag( :class => "search-btn") do %>
+                  <i class="fa fa-search"></i>
+                <% end %>
             </div>
           <% end %>
         </div>

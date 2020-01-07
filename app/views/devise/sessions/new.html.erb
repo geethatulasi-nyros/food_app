@@ -6,11 +6,6 @@
           <h3>Sign In</h3> 
           <div class="d-flex justify-content-end social_icon">
             <%- if devise_mapping.omniauthable? %>
-              <!--<%- resource_class.omniauth_providers.each do |provider| %>
-                <%= link_to omniauth_authorize_path(resource_name, provider) do %> 
-                  <span><i class="fa fa-<%= provider %>-square"></i></span>
-                <% end %>
-              <% end %>-->
               <%= link_to omniauth_authorize_path(resource_name, :facebook) do %> 
                   <span><i class="fa fa-facebook-square"></i></span>
               <% end %>

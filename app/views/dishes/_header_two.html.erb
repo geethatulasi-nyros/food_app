@@ -6,8 +6,6 @@
       <% end %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto navbar-links">
-         <!-- <li class="nav-item"><%= link_to 'Home', root_path,class: 'nav-link' %></li> -->
-          <!-- <li class="nav-item"><%= link_to 'Post Dish', new_dish_path,class: 'nav-link' %></li> -->
         <li class="nav-item">
             <% if  user_signed_in? %>
               <%= link_to "SignOut", destroy_user_session_path, method: :delete, class: "nav-link" %>

@@ -42,7 +42,7 @@
 }
 .singledish-name{
 	text-transform: capitalize;
-	font-style: helvetica;
+	font-family: Oswald;
 	font-weight: 600;
 	font-size:1rem;
 }
@@ -55,7 +55,8 @@
 	border-left:1px solid gray;
 }
 .singledish-description{
-	color: #7b90a2;
+	/*color: #7b90a2;*/
+	font-family: Alegreya;
 }
 .singledish-details{
 	display: flex;
@@ -146,8 +147,8 @@
 	padding: 20px;
 }
 .username{
-	font-family: helvetica;
-	font-size: 20px;
+	font-family:Oswald;
+	font-size: 18px;
 	font-weight: 500;
 	font-synthesis: 2px;
 	line-height: 2px;
@@ -155,7 +156,8 @@
 }
 .review{
 	margin-top: 5px;
-	color: #7b90a2;
+	color: gray;
+	font-family: Alegreaya;
 }
 .sorting{
 	margin-top: 30px;
@@ -421,6 +423,8 @@ div.field_with_errors div.ui-effects-wrapper {
 }
 .user-recipe,.user-name{
 	text-transform: capitalize;
+	font-size: 16px;
+	font-family: cursive;
 }
 .header-main-nav-two,.header-main-nav{
 	padding: 5px 0px;
