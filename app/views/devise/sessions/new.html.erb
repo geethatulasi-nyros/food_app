@@ -7,7 +7,7 @@
           <div class="d-flex justify-content-end social_icon">
             <%- if devise_mapping.omniauthable? %>
               <%= link_to omniauth_authorize_path(resource_name, :facebook) do %> 
-                  <span><i class="fa fa-facebook-square"></i></span>
+                <span><i class="fa fa-facebook-square"></i></span>
               <% end %>
               <%= link_to omniauth_authorize_path(resource_name,:google_oauth2) do %>
                 <span><i class="fa fa-google-plus-square"></i></span>
@@ -19,8 +19,8 @@
           <%= form_for(resource, as: resource_name, url: session_path(resource_name),id: "new-signin") do |f| %>
           <div class="row">
             <div class="field input-group form-group">
-               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fa fa-user"></i></span>
+               <div class="input-group-prepend user-field-prepend">
+                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
               </div>
               <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Email",class: "form-control"  %>
             </div>
@@ -28,7 +28,7 @@
           </div>
           <div class="row">
             <div class="field input-group form-group">
-               <div class="input-group-prepend">
+               <div class="input-group-prepend user-field-prepend">
                 <span class="input-group-text"><i class="fa fa-key"></i></span>
               </div>
               <%= f.password_field :password, autocomplete: "current-password",placeholder: "Password",class: 'form-control' %>
@@ -79,7 +79,3 @@
   })
   $('.auth-container').css({ height: $(window).innerHeight() });
 </script>
-
- <style type="text/css">
-
- </style>

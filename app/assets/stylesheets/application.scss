@@ -1,14 +1,17 @@
 @import "bootstrap";
 @import "home";
 @import "dishes";
-@import "reviews";
-@import "font-awesome";
+@import "reviews"; 
 @import "social-share-button";
 @import "rails-social-share-button";
 @import "jquery-ui";
 @import "font-awesome";
 @import "toastr";
+/*@import "style";*/
+@import "admin";
+@import "admin_user";
 $size: 28px;
+@import "admin_dishes";
 
 .social-share-button {
   .ssb-icon {
@@ -17,3 +20,4 @@ $size: 28px;
     width: $size;
   }
 }
+@import "dataTables/jquery.dataTables";

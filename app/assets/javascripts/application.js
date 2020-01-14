@@ -13,6 +13,7 @@
 //= require jquery3
 //= require jquery-ui
 //= require popper
+//= require turbolinks
 //= require bootstrap
 //= require rails-ujs
 //= require activestorage
@@ -28,6 +29,9 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require toastr
+//= require common-scripts.js
+//= require dataTables/jquery.dataTables
+//= require admin.js
 
  $(document).ready(function() {
     toastr.options = {

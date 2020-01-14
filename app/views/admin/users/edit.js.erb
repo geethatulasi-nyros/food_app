@@ -1,0 +1,10 @@
+$(document).ready(function(){
+	$("body").before("<%= escape_javascript render(:partial=>'edit',:locals=>{:@user=>@user})%>");
+	$("#user-edit-modal-<%= @user.id %>").modal();
+	$('#user-edit-modal-<%= @user.id %>').on('hidden.bs.modal', function () {
+  	$('#user-edit-modal-<%= @user.id %>').trigger("reset");
+	})
+	$('.user-edit-btns').click(function(){
+  	$('#user-edit-modal-<%= @user.id %>').modal('hide');
+ 	})
+})

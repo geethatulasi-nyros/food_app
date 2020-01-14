@@ -97,3 +97,4 @@ function fileUpload(){
     reader.readAsDataURL(file);
   });  
 };
+ 

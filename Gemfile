@@ -81,3 +81,4 @@ gem "breadcrumbs_on_rails"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'toastr-rails'
+gem 'jquery-datatables-rails', '~> 3.4.0'

@@ -8,16 +8,28 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= content_for?(:head) ? yield(:head) : '' %>
+    <%= stylesheet_link_tag 'zabuto_calendar', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'jquery.gritter', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'style-responsive', media: 'all', 'data-turbolinks-track': 'reload' %> 
+    <%= javascript_include_tag 'Chart', 'data-turbolinks-track': 'reload' %>
+    
+    <%= javascript_include_tag 'jquery.dcjqaccordion.2.7', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery.scrollTo.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery.nicescroll', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery.sparkline', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'common-scripts', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery.gritter', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'gritter-conf', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'sparkline-chart', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'zabuto_calendar', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <!--<%- flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-  <%- end -%> -->
-    <% unless user_signed_in? %>
+    <% unless user_signed_in? || admin_signed_in? %>
       <script type="text/javascript">
-          <% flash.each do |name,msg| %>
-          toastr.error('<%= msg %>');
-          <% end %>
+        <% flash.each do |name,msg| %>
+        toastr.error('<%= msg %>');
+        <% end %>
       </script>
     <% end %>
     <%= yield %>

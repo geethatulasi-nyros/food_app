@@ -1,0 +1,131 @@
+<section id="container">
+  <header class="header black-bg">
+    <!--logo start-->
+    <%= link_to admin_root_path,class: 'logo' do %>
+     <b>FORK<span>LY</span></b> 
+    <% end %>
+    <!--logo end-->
+    <div class="top-menu">
+      <ul class="nav pull-right top-menu">
+        <li> 
+       	  <%= link_to "SignOut", destroy_admin_session_path, method: :delete, class: "logout" %>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <% unless flash.empty? %>
+    <script type="text/javascript">
+        <% flash.each do |f| %>
+        <% type = f[0].to_s %>
+        toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+    </script>
+  <% end %>
+  <aside>
+    <div id="sidebar" class="nav-collapse ">
+      <!-- sidebar menu start-->
+      <ul class="sidebar-menu" id="nav-accordion">
+        <p class="centered"><%= image_tag "userprofile.jpg", class: "admin-profile" %></p>
+        <h5 class="centered"><%= current_admin.name %></h5>
+        <li class="mt">
+       		<%= link_to admin_root_path do %>
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
+          <% end %>
+        </li>
+        <li class="sub-menu">
+          <%= link_to admin_users_path do %>
+            <i class="fa fa-user"></i>
+            <span>Users</span>
+          <% end %>
+        </li>
+        <li class="sub-menu">
+          <%= link_to admin_dishes_path do %>
+            <i class="fa fa-cutlery"></i>
+            <span>Dishes</span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <section id="main-content">
+    <section class="wrapper">
+      <h3><i class="fa fa-angle-right"></i>Dishses</h3>
+      <p class="d-flex justify-content-end">
+       <%= link_to "Create Dish",new_admin_dish_path,class: 'create-user' %>
+      </p>
+    		<div class="table-content">
+          <table id="dish-table" class="table table-bordered table-striped table-hover">
+			      <thead>
+			        <tr>
+			          <th>ID</th>  
+			          <th>Name</th> 
+			          <th>Price</th>  
+                <th id="description">Description</th>    
+                <th>Image</th>
+			          <th class="dish-actions">Actions</th>    
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <% @dishes.each do |dish| %>
+			          <tr>
+			            <td><%= dish.id %></td>
+			            <td>
+				            <%= link_to admin_dish_path(dish),class: 'admin-user-name' do %>
+											<%= dish.name %>
+										<% end %>
+									</td>
+			            <td><%= dish.price %></td>
+			            <td class="description"><%= dish.description %></td>
+                  <td>
+                    <%if dish.images.length > 0 %>
+                      <%= image_tag dish.images[0].image.to_s, class: 'admin-dish-image' %>
+                    <% else %>
+                      <%= image_tag "home-2.jpeg", class: 'admin-dish-image' %>
+                    <% end %>
+                  </td>
+			            <td>
+			            	<%= link_to admin_dish_path(dish) do %>
+                      <span class="user-btns" id="user-show-btn"><i class="fa fa-eye"></i></span>
+                    <% end %>
+                    <%= link_to edit_admin_dish_path(dish) do%>
+                      <span class="user-btns" id="user-edit-btn"><i class="fa fa-edit"></i></span>
+                    <% end %>
+                    <%= link_to '#',"data-toggle"=>"modal", "data-target" => "#delete-#{dish.id}" do %>
+                      <span class="user-btns" id="user-delete-btn"><i class="fa fa-trash"></i></span>
+                    <% end %>
+			            </td>
+			          </tr>
+                <div class="modal" tabindex="-1" role="dialog" id="delete-<%= dish.id %>">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Are you sure to delete this dish?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <%= dish.name %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="user-edit-btns" data-dismiss="modal" id="user-cancel-btn">
+                          Cancel
+                        </button>
+                        <%= link_to 'Confirm',admin_dish_path(dish), method: :delete, :class => 'user-edit-btns delete-btn'%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+			        <% end %>
+			      </tbody>
+			    </table>
+ 				</div>
+    </section>
+  </section>
+</section>
+<script type="text/javascript">
+  dishesTable();
+  formValidate();
+</script> 
+

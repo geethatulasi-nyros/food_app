@@ -1,0 +1,24 @@
+.admin-dish-image{
+	width:80px;
+	height: 80px;
+	border-radius: 20%;
+}
+.dish-actions{
+	width: 15%;
+}
+#description{
+	width: 40%;
+}
+#admin-form-container{
+	margin-top: 4%;
+}
+.description{
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#dish_description{
+	overflow: hidden;
+	height: 100px;
+}

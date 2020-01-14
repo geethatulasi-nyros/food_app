@@ -1,0 +1,107 @@
+<section id="container">
+  <header class="header black-bg">
+   <!--logo start-->
+    <%= link_to admin_root_path,class: 'logo' do %>
+     <b>FORK<span>LY</span></b> 
+    <% end %>
+    <!--logo end-->
+    <div class="top-menu">
+      <ul class="nav pull-right top-menu">
+        <li> 
+       	  <%= link_to "SignOut", destroy_admin_session_path, method: :delete, class: "logout" %>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <aside>
+    <div id="sidebar" class="nav-collapse ">
+      <!-- sidebar menu start-->
+      <ul class="sidebar-menu" id="nav-accordion">
+       <p class="centered"><%= image_tag "userprofile.jpg", class: "admin-profile" %></p>
+        <h5 class="centered"><%= current_admin.name %></h5>
+        <li class="mt">
+       		<%= link_to admin_root_path do %>
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
+          <% end %>
+        </li>
+        <li class="sub-menu">
+          <%= link_to admin_users_path do %>
+            <i class="fa fa-user"></i>
+            <span>Users</span>
+          <% end %>
+        </li>
+        <li class="sub-menu">
+          <%= link_to admin_dishes_path do %>
+            <i class="fa fa-cutlery"></i>
+            <span>Dishes</span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <section id="main-content">
+    <section class="wrapper users-content">
+     <div class="container">
+				<div class="col-md-7 offset-2 form-container", id="admin-form-container">
+				<% if params[:action] == 'new' %>
+					<h4 class="create-text">Create Dish</h4>
+				<% else params[:action] == 'edit' %>
+					<h4 class="create-text">Edit Dish</h4>
+				<% end %>
+					<%= form_with model: [:admin, @dish] ,id:(params[:action]== 'new' ? 'admin_new_dish': 'admin_edit_path') do |f| %>
+						<div class="form-group row">
+							<div class="col-sm-12">
+								<%= f.text_field :name,placeholder: "Name",class: "form-control form-field",maxlength:30   %>
+							<div class="error-text"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-12">
+								<%= f.text_field :price,placeholder: "Price",class: "form-control form-field" %>
+							<div class="error-text"></div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-12">
+								<%= f.collection_select :category_id,Category.all,:id,:name,{},{class: 'form-control form-field'} %>
+							</div>
+						</div>
+					  <%= f.fields_for :images  do |img_fields| %>
+						<div class="form-group row">    
+					    <div class="col-xs-12 col-md-12 col-md-offset-3 col-sm-8 col-sm-offset-2">  
+						      <div class="input-group image-preview">
+					          <input type="text" class="form-control form-field image-preview-filename" disabled> 
+					          <span class="input-group-btn">
+					            <div class="btn btn-default image-preview-input">
+					              <span class="fa fa-folder-open"></span>
+					              <span class="image-preview-input-title">Browse</span>
+					              <%= img_fields.file_field :image,class: " form-control form-field" %>
+					            </div>
+					          </span>
+						      </div> 
+					        <p id="img-note">Note:JPG,JPEG,PNG,GIF,WEBP Image Extensions </p>
+					    </div>
+					    <div class="error-text"></div>
+					  </div>
+					  <% end %>
+					  <div class="form-group row">
+							<div class="col-sm-12">
+								<%= f.text_area :description,rows:3, wrap: 'on',maxlength:200,placeholder:'Description',class: "form-control form-field" %>
+							<div class="error-text"></div>
+							</div>
+						</div>
+						<div class="d-flex justify-content-between">
+							<div>
+								<%= link_to 'CANCEL',admin_dishes_path,class: "btn cancel-btn" %>
+							</div>
+							<div> 
+								<%= f.submit 'POST',class: "btn success-btn",id: 'post-btn'%>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+    </section>
+  </section>
+</section>

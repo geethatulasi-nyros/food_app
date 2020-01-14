@@ -89,10 +89,10 @@
 	font-stretch: 2px;
 	color:#797876;
 }
-.nav{
+/*.nav{
 	padding: 20px 80px;
 	background-color:#544a7d;
-}
+}*/
 .footer {
 	position:fixed;
 	bottom:0;
@@ -249,7 +249,7 @@ div.field_with_errors div.ui-effects-wrapper {
 	height: 50px;
 	background-color:#efefef;
 }
-#sidebar {
+/*#sidebar {
 	display: flex;
 	align-items: stretch;
 	justify-content: flex-start;
@@ -263,7 +263,7 @@ div.field_with_errors div.ui-effects-wrapper {
 }
 #sidebar.active {
   margin-left: -250px;
-}
+}*/
 .lg-user{
 	color: white;
 }
@@ -327,7 +327,7 @@ div.field_with_errors div.ui-effects-wrapper {
 	font-family: cursive;
 	font-size: 16px;
 }
-.header{
+.headerstyle{
 	background-color: #53a318;
 	padding-bottom: 10px;
 }

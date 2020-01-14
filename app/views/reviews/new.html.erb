@@ -2,12 +2,12 @@
 	<%= render partial: 'dishes/header_two' %>
 </div>
 <% unless flash.empty? %>
-    <script type="text/javascript">
-        <% flash.each do |f| %>
-        <% type = f[0].to_s %>
-        toastr['<%= type %>']('<%= f[1] %>');
-        <% end %>
-    </script>
+  <script type="text/javascript">
+    <% flash.each do |f| %>
+    	<% type = f[0].to_s %>
+    	toastr['<%= type %>']('<%= f[1] %>');
+    <% end %>
+  </script>
 <% end %>
 <div class="container">
 	<div class="review-form-container">

@@ -1,0 +1,66 @@
+<section id="container">
+  <!--header start-->
+  <header class="header black-bg">
+    <!--logo start-->
+    <%= link_to admin_root_path,class: 'logo' do %>
+     <b>FORK<span>LY</span></b> 
+    <% end %>
+    <!--logo end-->
+    <div class="top-menu">
+      <ul class="nav pull-right top-menu">
+        <li> 
+       	  <%= link_to "SignOut", destroy_admin_session_path, method: :delete, class: "logout" %>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <!--header end-->
+  <!--sidebar start-->
+  <aside>
+    <div id="sidebar" class="nav-collapse ">
+      <!-- sidebar menu start-->
+      <ul class="sidebar-menu" id="nav-accordion">
+        <p class="centered"><%= image_tag "userprofile.jpg", class: "admin-profile" %></p>
+        <h5 class="centered">
+          <% if admin_signed_in? %>
+          <%= current_admin.name %>
+          <% else %>
+          great
+          <% end %>
+        </h5>
+        <li class="mt">
+       		<%= link_to admin_root_path do %>
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
+          <% end %>
+        </li>
+        <li class="sub-menu">
+          <%= link_to admin_users_path do %>
+            <i class="fa fa-user"></i>
+            <span>Users</span>
+          <% end %>
+        </li>
+        <li class="sub-menu">
+          <%= link_to admin_dishes_path do %>
+            <i class="fa fa-cutlery"></i>
+            <span>Dishes</span>
+          <% end %>
+        </li>
+      </ul>
+      <!-- sidebar menu end-->
+    </div>
+  </aside>
+  <!--sidebar end-->
+  <!--main content start-->
+   	 <section id="main-content">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i>Dashboard</h3>
+         
+        <!-- /row -->
+      </section>
+    <!-- /wrapper -->
+  	</section>
+  <!-- main content end -->
+</section>
+ 
+ 
