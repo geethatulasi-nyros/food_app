@@ -55,12 +55,13 @@
    	 <section id="main-content">
       <section class="wrapper">
         <h3><i class="fa fa-angle-right"></i>Dashboard</h3>
-         
-        <!-- /row -->
+       <%= @users.length %>
+       <%= @dishes.length %>
+       <% @new_dishes.each do |dish| %>
+        <p><%= dish.name %></p>
+       <% end %>
       </section>
-    <!-- /wrapper -->
   	</section>
-  <!-- main content end -->
 </section>
  
  

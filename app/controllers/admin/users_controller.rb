@@ -1,5 +1,7 @@
 class Admin::UsersController < ApplicationController
+	before_action :authenticate_admin!
 	before_action :set_user
+	rescue_from ActiveRecord::RecordInvalid, :with => :user_error
 	def index
 		@users = User.all.order('created_at desc')
 	end
@@ -33,5 +35,9 @@ class Admin::UsersController < ApplicationController
 		end
 		def set_user
 			@user = User.find_by(id:params[:id])
+		end
+		def user_error
+			flash[:error] = 'Email has already been taken.try with defferent email address'
+			redirect_to new_admin_user_path
 		end
 end

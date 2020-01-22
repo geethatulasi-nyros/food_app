@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= form_with model: [:admin,@user],:id=>"user-edit-form" do |user_form| %>
+        <%= form_with model: [:admin,@user],:id=>"user-edit-form",local: true do |user_form| %>
 					<div class="row form-group">
 						<div class="col-md-12">
 							<%= user_form.text_field :name,class: 'form-control' %>

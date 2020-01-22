@@ -49,7 +49,7 @@
 				<% else params[:action] == 'edit' %>
 					<h4 class="create-text">Edit Dish</h4>
 				<% end %>
-					<%= form_with model: [:admin, @dish] ,id:(params[:action]== 'new' ? 'admin_new_dish': 'admin_edit_path') do |f| %>
+					<%= form_with model: [:admin, @dish] ,id:(params[:action]== 'new' ? 'admin_new_dish': 'admin_edit_path'),local: true do |f| %>
 						<div class="form-group row">
 							<div class="col-sm-12">
 								<%= f.text_field :name,placeholder: "Name",class: "form-control form-field",maxlength:30   %>
@@ -87,7 +87,7 @@
 					  <% end %>
 					  <div class="form-group row">
 							<div class="col-sm-12">
-								<%= f.text_area :description,rows:3, wrap: 'on',maxlength:200,placeholder:'Description',class: "form-control form-field" %>
+								<%= f.text_area :description,rows:3, wrap: 'on',maxlength:200,placeholder:'Description',class: "form-control form-field admin-dish-description" %>
 							<div class="error-text"></div>
 							</div>
 						</div>

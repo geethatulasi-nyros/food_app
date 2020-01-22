@@ -1,0 +1,18 @@
+<div class="hovercard user-card">
+  <div class="cardheader">
+  </div>
+  <div class="avatar">
+  <% if @user.image.length != 0 %>
+      <%= image_tag @user.image.to_s %>
+    <% else %>
+      <%= image_tag "userprofileavatar.jpg" %>
+    <% end %>
+  </div>
+  <div class="info">
+    <div class="title">
+      <%= @user.name %>
+    </div>
+    <div class="desc"><%= @user.email %></div>
+    <div class="desc"><%= @total_dishes.length %> Recipes</div>
+  </div>
+</div>

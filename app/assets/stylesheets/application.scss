@@ -12,6 +12,8 @@
 @import "admin_user";
 $size: 28px;
 @import "admin_dishes";
+@import "users";
+@import "dataTables/jquery.dataTables";
 
 .social-share-button {
   .ssb-icon {
@@ -20,4 +22,3 @@ $size: 28px;
     width: $size;
   }
 }
-@import "dataTables/jquery.dataTables";

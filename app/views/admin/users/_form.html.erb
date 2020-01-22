@@ -3,35 +3,49 @@
 		<div class="form-title">
 			<span>Create User</span>
 		</div>
-		<%= form_with model: @user,url: admin_users_path,class: "contact100-form validate-form" do |user_form| %>
-		<div class="form-group input-group user-input">
-			<div class="input-group-prepend user-label-input">
-				<span class="input-group-text"><i class="fa fa-user"></i></span>
+		<%= form_with model: @user,url: admin_users_path,class: "contact100-form validate-form",id: 'admin_new_user',local: true do |user_form| %>
+		<div class="row">
+			<div class="form-group input-group user-input">
+				<div class="input-group-prepend user-label-input">
+					<span class="input-group-text"><i class="fa fa-user"></i></span>
+				</div>
+				<%= user_form.text_field :name,placeholder: 'Name',class: 'user-input-field' %>
 			</div>
-			<%= user_form.text_field :name,placeholder: 'Name',class: 'user-input-field' %>
+			<div class="error-text"></div>
 		</div>
-		<div class="form-group input-group user-input">
-			<div class="input-group-prepend user-label-input">
-				<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+		<div class="row">
+			<div class="form-group input-group user-input">
+				<div class="input-group-prepend user-label-input">
+					<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+				</div>
+				<%= user_form.text_field :email,placeholder: 'Email',class: 'user-input-field' %>
 			</div>
-			<%= user_form.text_field :email,placeholder: 'Email',class: 'user-input-field' %>
+			<div class="error-text"></div>
 		</div>
-		<div class="form-group input-group user-input">
-			<div class="input-group-prepend user-label-input">
-				<span class="input-group-text"><i class="fa fa-key"></i></span>
+		<div class="row">
+			<div class="form-group input-group user-input">
+				<div class="input-group-prepend user-label-input">
+					<span class="input-group-text"><i class="fa fa-key"></i></span>
+				</div>
+				<%= user_form.password_field :password,placeholder: 'Password',class: 'user-input-field' %>
 			</div>
-			<%= user_form.password_field :password,placeholder: 'Password',class: 'user-input-field' %>
+			<div class="error-text"></div>
 		</div>
-		<div class="form-group input-group user-input">
-			<div class="input-group-prepend user-label-input">
-				<span class="input-group-text"><i class="fa fa-key"></i></span>
+		<div class="row">
+			<div class="form-group input-group user-input">
+				<div class="input-group-prepend user-label-input">
+					<span class="input-group-text"><i class="fa fa-key"></i></span>
+				</div>
+				<%= user_form.password_field :password_confirmation,placeholder: 'Confirm Password',class: 'user-input-field' %>
 			</div>
-			<%= user_form.password_field :password_confirmation,placeholder: 'Confirm Password',class: 'user-input-field' %>
+			<div class="error-text"></div>
 		</div>
-		<div class="container-contact100-form-btn">
-			<%= user_form.submit 'SAVE',class: 'btn contact100-form-btn' %>
+		<div class="user-form-btn">
+			<%= user_form.submit 'SAVE',class: 'btn user-submit-btn' %>
 		</div>
 		<% end %>
 	</div>
 </div>
- 
+<script type="text/javascript">
+	formValidate();
+</script>

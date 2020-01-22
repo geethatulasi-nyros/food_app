@@ -1,0 +1,35 @@
+<div>
+	<%= render partial: "dishes/header" %>
+</div>
+<div>
+	<%= render partial: "user_profile" %>
+</div>
+<% unless flash.empty? %>
+  <script type="text/javascript">
+    <% flash.each do |f| %>
+    <% type = f[0].to_s %>
+    toastr['<%= type %>']('<%= f[1] %>');
+    <% end %>
+  </script>
+<% end %>
+<nav>
+<div class="nav nav-tabs nav-fill user-tabs">
+	<%= link_to'Profile', user_path(current_user.id),class: 'nav-item nav-link active' %> 
+ 	<%= link_to 'Edit Profile', edit_user_path(current_user.id),class: 'nav-item nav-link' %> 
+	<%= link_to 'My Recipes',myrecipes_path,class: 'nav-item nav-link' %> 
+</div>
+<div>
+<!--<%= tabs_tag open_tabs: { id: 'user-tabs', class: 'nav nav-tabs' } do |tab| %>
+  <%= tab.home 'Homepage', user_path(current_user.id),class: 'nav-item nav-link active' %>
+  <%= tab.home 'Homepage', edit_user_path(current_user.id),class: 'nav-item nav-link' %>
+  <%= tab.home 'Homepage', root_path, class: 'nav-item nav-link' %>
+<% end %>-->
+</div>
+</nav> 
+<!-- <div>
+	<%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+</div> -->
+<script type="text/javascript">
+	myFunction();
+</script> 
+ 

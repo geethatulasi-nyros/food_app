@@ -163,12 +163,6 @@ a, a:hover, a:focus {
 	color: white;
 }
 
-hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid #797979;
-}
 .top-menu{
     margin-top: 10px;
 }
@@ -2010,15 +2004,6 @@ profile-text p {
 	margin-right: 0px;
 	text-transform: uppercase;
 }
-
-.nav-tabs {
-	background: #e0e1e7;
-}
-
-.nav-tabs a {
-	color: #2f2f2f;
-}
-
 .grey-style {
 	background: #f2f4f6;
 	padding: 10px;

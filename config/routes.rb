@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: "dishes#index"
   post 'dishes/search', to: 'dishes#search'
   get 'dishes/autocomplete', to:'dishes#autocomplete'
+  resources :users
   resources :dishes do
   	resources :reviews
   end
@@ -15,4 +16,10 @@ Rails.application.routes.draw do
     resources :dishes
     resources :reviews
   end
+  resource :user, only: [:edit] do
+  collection do
+    patch 'update_password'
+  end
+end
+get '/myrecipes',to: 'users#my_recipes',as: 'myrecipes'
 end

@@ -1,0 +1,66 @@
+.user-card {
+  padding-top: 20px;
+  margin: 0;
+  background-color: rgba(214, 224, 226, 0.2);
+  border-top-width: 0;
+  border-bottom-width: 2px;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.user-card.hovercard {
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(214, 224, 226, 0.2);
+}
+.user-card.hovercard .cardheader {
+  background: url("usercoverimage.jpg");
+  background-size: cover;
+  height: 135px;
+}
+.user-card.hovercard .avatar {
+  position: relative;
+  top: -50px;
+  margin-bottom: -50px;
+}
+.user-card.hovercard .avatar img {
+  width: 100px;
+  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.5);
+}
+.user-card.hovercard .info {
+  padding: 4px 8px 10px;
+}
+.card.hovercard .info .title {
+  margin-bottom: 4px;
+  font-size: 24px;
+  line-height: 1;
+  color: #262626;
+  vertical-align: middle;
+}
+.user-card.hovercard .info .desc {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 20px;
+  color: #737373;
+  text-overflow: ellipsis;
+}
+.user-profile-edit-form{
+  width: 100%;
+  margin:30px auto;
+  padding: 40px;
+  border-radius:4px;
+  border:1px solid #bdbbbb;
+}
+.recipes-container{
+  margin:40px auto;
+}

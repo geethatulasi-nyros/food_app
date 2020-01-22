@@ -5,7 +5,7 @@ class DishesController < ApplicationController
 	def index
 		@search = Dish.includes(:images).ransack(params[:q])
 		@search.sorts = ['created_at DESC'] if @search.sorts.empty?
-		@dishes = @search.result.paginate(page:params[:page],per_page:9)
+		@dishes = @search.result.paginate(page:params[:page],per_page:9) 
 	end
 	def healthy
 	end
